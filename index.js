@@ -5,11 +5,17 @@ const bodyParser = require('body-parser');
 const express = require('express');
 const app = express();
 
+const { usersSchema } = require('./schemas/usersSchema');
+const { exercisesSchema } = require('./schemas/exercisesSchema');
+
 // const { pingMongodb } = require('./pingMongodb');
 // Ping deployment
 // pingMongodb(process.env.MONGO_URI, { serverApi: { version: '1', strict: true, deprecationErrors: true } }).catch(console.error);
 
 mongoose.connect(process.env.MONGO_URI, { serverApi: { version: '1', strict: true, deprecationErrors: true } });
+
+const Exercises = mongoose.model('Exercises', exercisesSchema);
+const Users = mongoose.model('Users', usersSchema);
 
 app.use(cors());
 app.use(express.static('public'));
