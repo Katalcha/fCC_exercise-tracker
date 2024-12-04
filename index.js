@@ -20,6 +20,12 @@ app.get('/api/ready', (req, res) => {
   }
 });
 
+app.get('/api/users', (req, res) => res.json({ message: 'GET /api/users WIP' }));
+app.get('/api/users/:_id/logs', (req, res) => res.json({ message: 'GET /api/users/_id/logs WIP'}));
+
+app.post('/api/users', (req, res) => res.json({ message: 'POST /api/users WIP' }));
+app.post('/api/users/:_id/exercises', (req, res) => res.json({ message: 'POST /api/users/_id/exercises WIP' }));
+
 const listener = app.listen(process.env.PORT || 3000, () => {
   console.log(`Your app is listening on port ${listener.address().port}`);
 });
