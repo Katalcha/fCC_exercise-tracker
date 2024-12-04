@@ -5,6 +5,12 @@ const bodyParser = require('body-parser');
 const express = require('express');
 const app = express();
 
+// const { pingMongodb } = require('./pingMongodb');
+// Ping deployment
+// pingMongodb(process.env.MONGO_URI, { serverApi: { version: '1', strict: true, deprecationErrors: true } }).catch(console.error);
+
+mongoose.connect(process.env.MONGO_URI, { serverApi: { version: '1', strict: true, deprecationErrors: true } });
+
 app.use(cors());
 app.use(express.static('public'));
 
